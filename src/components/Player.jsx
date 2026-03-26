@@ -17,7 +17,9 @@ const Player = () => {
     pause,
     track,
     time,
-    seekSong
+    seekSong,
+    next,
+    previous
   } = context;
 
   return (
@@ -37,7 +39,7 @@ const Player = () => {
 
         {/* Controls */}
         <div className='flex gap-4 items-center'>
-          <img className='w-4 cursor-pointer' src={assets.prev_icon} alt="" />
+          <img onClick={previous} className='w-4 cursor-pointer' src={assets.prev_icon} alt="" />
 
           {
             PlayerStatus ? (
@@ -57,7 +59,7 @@ const Player = () => {
             )
           }
 
-          <img className='w-4 cursor-pointer' src={assets.next_icon} alt="" />
+          <img onClick={next} className='w-4 cursor-pointer' src={assets.next_icon} alt="" />
         </div>
 
         {/* Progress */}

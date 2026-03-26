@@ -86,6 +86,22 @@ const PlayerContextProvider = ({ children }) => {
     if (selected) setTrack(selected);
   };
 
+  // ⏭ Next Song
+  const next = () => {
+    const currentIndex = songsData.findIndex(s => s.id === track.id);
+    if (currentIndex < songsData.length - 1) {
+      setTrack(songsData[currentIndex + 1]);
+    }
+  };
+
+  // ⏮ Previous Song
+  const previous = () => {
+    const currentIndex = songsData.findIndex(s => s.id === track.id);
+    if (currentIndex > 0) {
+      setTrack(songsData[currentIndex - 1]);
+    }
+  };
+
   const value = {
     seekBg,
     seekBar,
@@ -95,7 +111,9 @@ const PlayerContextProvider = ({ children }) => {
     track,
     time,
     seekSong,
-    playWithId
+    playWithId,
+    next,
+    previous
   };
 
   return (
