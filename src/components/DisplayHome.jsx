@@ -20,7 +20,7 @@ const DisplayHome = () => {
         <h1 className='my-5 font-bold text-2xl'>Today's biggest hits</h1>
         <div className='flex gap-4 overflow-x-auto pb-2'>
           {songsData.map((item,index)=>(
-            <SongItem key={index} name={item.name} desc={item.desc} image={item.image}/>
+            <SongItem key={index} name={item.name} desc={item.desc} image={item.image} id={item.id}/>
           ))}
         </div>
       </div>

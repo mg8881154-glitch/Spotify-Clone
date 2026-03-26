@@ -80,6 +80,12 @@ const PlayerContextProvider = ({ children }) => {
       (clickX / width) * audioRef.current.duration;
   };
 
+  // 🎵 Play by ID
+  const playWithId = (id) => {
+    const selected = songsData.find(s => s.id === id);
+    if (selected) setTrack(selected);
+  };
+
   const value = {
     seekBg,
     seekBar,
@@ -88,7 +94,8 @@ const PlayerContextProvider = ({ children }) => {
     pause,
     track,
     time,
-    seekSong
+    seekSong,
+    playWithId
   };
 
   return (
