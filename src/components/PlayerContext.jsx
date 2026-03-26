@@ -86,6 +86,11 @@ const PlayerContextProvider = ({ children }) => {
     if (selected) setTrack(selected);
   };
 
+  // 🔊 Volume
+  const changeVolume = (e) => {
+    audioRef.current.volume = e.target.value;
+  };
+
   // ⏭ Next Song
   const next = () => {
     const currentIndex = songsData.findIndex(s => s.id === track.id);
@@ -113,7 +118,8 @@ const PlayerContextProvider = ({ children }) => {
     seekSong,
     playWithId,
     next,
-    previous
+    previous,
+    changeVolume
   };
 
   return (

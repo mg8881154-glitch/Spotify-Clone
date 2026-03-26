@@ -19,7 +19,8 @@ const Player = () => {
     time,
     seekSong,
     next,
-    previous
+    previous,
+    changeVolume
   } = context;
 
   return (
@@ -27,10 +28,10 @@ const Player = () => {
 
       {/* Left */}
       <div className='hidden lg:flex items-center gap-4'>
-        <img className='w-12' src={track?.image} alt="" />
+        <img className='w-12 rounded' src={track?.image} alt="" />
         <div>
           <p>{track?.name}</p>
-          <p className='text-sm'>{track?.desc?.slice(0, 12)}</p>
+          <p className='text-sm text-[#a7a7a7]'>{track?.desc?.slice(0, 12)}</p>
         </div>
       </div>
 
@@ -96,6 +97,15 @@ const Player = () => {
       {/* Right */}
       <div className='hidden lg:flex items-center gap-2'>
         <img className='w-4' src={assets.volume_icon} alt="" />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          defaultValue="1"
+          onChange={changeVolume}
+          className='w-24 h-1 accent-green-500 cursor-pointer'
+        />
       </div>
 
     </div>
